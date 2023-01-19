@@ -71,7 +71,7 @@
         }
         p{
             margin: 10px;
-            width: 200px;
+            width: 230px;
         }
     }
 
@@ -86,29 +86,72 @@
             width: 60px;
             height: 60px;
         }
-
      }
 
 </style>
 
 <body>
     <h1>Gess The Color Game </h1>
-    <p>RGB (0,0,0)</p>
+    <p>RGB ()</p>
     <div class="cardsout">
-        <div class="card" onclick="checkanswer()"></div>
-        <div class="card" onclick="checkanswer()"></div>
-        <div class="card" onclick="checkanswer()"></div>
-        <div class="card" onclick="checkanswer()"></div>
-        <div class="card" onclick="checkanswer()"></div>
-        <div class="card" onclick="checkanswer()"></div>
-        <div class="card" onclick="checkanswer()"></div>
-        <div class="card" onclick="checkanswer()"></div>
-        <div class="card" onclick="checkanswer()"></div>
+        <div class="card" onclick="checkanswer('0')"></div>
+        <div class="card" onclick="checkanswer('1')"></div>
+        <div class="card" onclick="checkanswer('2')"></div>
+        <div class="card" onclick="checkanswer('3')"></div>
+        <div class="card" onclick="checkanswer('4')"></div>
+        <div class="card" onclick="checkanswer('5')"></div>
+        <div class="card" onclick="checkanswer('6')"></div>
+        <div class="card" onclick="checkanswer('7')"></div>
+        <div class="card" onclick="checkanswer('8')"></div>
 
 </body>
+
+<!-- Javascript code started -->
 <script>
-    const checkanswer =()=>{
-        alert("Wrong Answer")
+    var cards = document.querySelectorAll('.card');
+    var p = document.querySelector('p');
+    var color = [];
+    var random = Math.floor(Math.random() * 9);// 0 to < 9  random number.
+    var randomColor = [];
+
+    // rgb random color (255,255,255)
+    var randomColor1 = Math.floor(Math.random() * 256);
+    var randomColor2 = Math.floor(Math.random() * 256);
+    var randomColor3 = Math.floor(Math.random() * 256);
+    var randomColor4 = Math.floor(Math.random() * 256);
+    var randomColor5 = Math.floor(Math.random() * 256);
+    var randomColor6 = Math.floor(Math.random() * 256);
+    var randomColor7 = Math.floor(Math.random() * 256);
+    var randomColor8 = Math.floor(Math.random() * 256);
+    var randomColor9 = Math.floor(Math.random() * 256);
+    var randomColor10 = Math.floor(Math.random() * 256);
+    var randomColor11 = Math.floor(Math.random() * 256);
+
+    randomColor.push(
+        randomColor1,randomColor2,randomColor3,
+        randomColor4,randomColor5,randomColor6,
+        randomColor7,randomColor8,randomColor9,
+        randomColor10,randomColor11,
+    )
+
+
+    for(var i = 0; i < cards.length; i++){
+        // console.log("rgb("+ randomColor[i]+ "," + randomColor[i+1]+ "," + randomColor[i+2]+")");
+    
+        cards[i].style.backgroundColor = "rgb("+ randomColor[i]+ "," + randomColor[i+1]+ "," + randomColor3
+        color.push(cards[i].style.backgroundColor)
+    }
+
+    p.textContent = color[random];
+    p.style.backgroundColor = color[random]; // Hint for RGB color background color.
+
+    const checkanswer =(cardindex)=>{
+        if(color[cardindex]== p.textContent){
+            alert("Correct Answer")
+        }
+        else{
+            alert("Wrong Answer")
+        }
     }
 </script>
 </html>
